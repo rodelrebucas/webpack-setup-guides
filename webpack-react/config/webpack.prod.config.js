@@ -7,13 +7,13 @@ var UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 var Visualizer = require("webpack-visualizer-plugin");
 
 // Configs
-var baseConfig = require("./webpack.base.config");
+var commonConfig = require("./webpack.common.config");
 
 // prod setup , optimizations
 const prodConfiguration = env => {
   return merge([
     {
-    // Subject to investigation. why? 
+      // Subject to investigation. why?
       optimization: {
         runtimeChunk: "single",
         splitChunks: {
@@ -34,10 +34,14 @@ const prodConfiguration = env => {
         new OptimizeCssAssetsPlugin(),
         new Visualizer({ filename: "./statistics.html" })
       ]
+    },
+    {
+      mode: "production",
+      devtool: "source-map"
     }
   ]);
 };
 
 module.exports = env => {
-  return merge(baseConfig(env), prodConfiguration(env));
+  return merge(commonConfig(env), prodConfiguration(env));
 };

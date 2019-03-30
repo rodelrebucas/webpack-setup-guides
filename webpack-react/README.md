@@ -61,15 +61,15 @@ C. Setup
 
 1. Creating ./config and setting up base, prod and dev webpack config
 
-2. Setup build scrips in package.json
+2. Setup build scripts in package.json
 
-D. Server support
+D. Server support to serve production build of react
 
 1. Add express server - point to the dist/ folder for the production build of the react app
 
 2. Run prebuild and build
 
-`npm run build` - Runs *prebuild* , which is the webpack setup then runs the *build*  which the express node server.
+`npm run build` - Runs _prebuild_ , which is the webpack setup then runs the _build_ which the express node server.
 
 E. Code Splitting
 

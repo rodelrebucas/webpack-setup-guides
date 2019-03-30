@@ -2,6 +2,7 @@ const path = require("path");
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const merge = require("webpack-merge");
@@ -16,6 +17,10 @@ module.exports = env => {
     {
       // full ES2015+ environment
       entry: ["@babel/polyfill", APP_DIR], // support async/await
+      output: {
+        filename: "[name].[hash].js",
+        path: path.resolve(__dirname, "../dist")
+      },
       module: {
         rules: [
           {
@@ -38,12 +43,14 @@ module.exports = env => {
                 ? MiniCssExtractPlugin.loader
                 : "style-loader",
               "css-loader",
-              "sass-loader",
+              "sass-loader"
             ]
           }
         ]
       },
       plugins: [
+        new webpack.HashedModuleIdsPlugin(),
+        new CleanWebpackPlugin(),
         // support for html
         new HtmlWebpackPlugin({
           template: "./src/index.html",
