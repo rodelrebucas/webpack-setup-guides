@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stag",
-    "prebuild": "webpack --mode production --config config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stag --progress",
-    "build": "node server"
+    "start": "webpack-dev-server --config config/webpack.dev.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stag",
+    "build": "webpack --config config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stag --progress",
+    "build:run": "npm run build && node server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "clean-webpack-plugin": "^2.0.1",
     "express": "^4.16.4",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
