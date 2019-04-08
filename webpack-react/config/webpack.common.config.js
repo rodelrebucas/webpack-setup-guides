@@ -17,7 +17,10 @@ module.exports = env => {
       // full ES2015+ environment
       entry: ["@babel/polyfill", APP_DIR], // support async/await
       output: {
-        filename: "[name].[contenthash].js",
+        filename:
+          PLATFORM === "production"
+            ? "[name].[contenthash].js"
+            : "[name].[hash].js",
         path: path.resolve(__dirname, "../dist")
       },
       module: {
@@ -41,9 +44,25 @@ module.exports = env => {
               PLATFORM === "production"
                 ? MiniCssExtractPlugin.loader
                 : "style-loader",
-              "css-loader",
-              "postcss-loader",
-              "sass-loader"
+              {
+                loader: "css-loader",
+                options: {
+                  importLoaders: 2,
+                  sourceMap: true
+                }
+              },
+              {
+                loader: "postcss-loader",
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: "sass-loader",
+                options: {
+                  sourceMap: true
+                }
+              }
             ]
           }
         ]
