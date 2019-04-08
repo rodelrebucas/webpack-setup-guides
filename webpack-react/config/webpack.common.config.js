@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const WebpackMd5Hash = require("webpack-md5-hash"); // hash only changes
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 
@@ -65,8 +64,7 @@ module.exports = env => {
         // copy files to build folder
         // copy files from static to dist
         // run `npm run prebuild`
-        new CopyWebpackPlugin([{ from: "src/static" }]),
-        new WebpackMd5Hash()
+        new CopyWebpackPlugin([{ from: "src/static" }])
       ]
     }
   ]);

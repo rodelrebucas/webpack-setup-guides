@@ -17,8 +17,7 @@
     "clean-webpack-plugin": "^2.0.1",
     "express": "^4.16.4",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "webpack-md5-hash": "0.0.6"
+    "react-dom": "^16.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",

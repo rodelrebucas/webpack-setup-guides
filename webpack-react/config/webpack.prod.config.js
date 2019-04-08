@@ -13,7 +13,6 @@ var commonConfig = require("./webpack.common.config");
 const prodConfiguration = env => {
   return merge([
     {
-      // Subject to investigation. why?
       optimization: {
         runtimeChunk: "single",
         splitChunks: {
@@ -31,7 +30,7 @@ const prodConfiguration = env => {
       },
       plugins: [
         new MiniCssExtractPlugin({
-          filename: "styles.[contenthash].css"
+          filename: "[name].[contenthash].css"
         }),
         new OptimizeCssAssetsPlugin(),
         new Visualizer({ filename: "./statistics.html" })
