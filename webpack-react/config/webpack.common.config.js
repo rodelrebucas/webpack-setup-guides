@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const WebpackMd5Hash = require("webpack-md5-hash"); // hash only changes
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 
@@ -18,7 +18,7 @@ module.exports = env => {
       // full ES2015+ environment
       entry: ["@babel/polyfill", APP_DIR], // support async/await
       output: {
-        filename: "[name].[hash].js",
+        filename: "[name].[chunkhash].js", // chunkhash instead of hash
         path: path.resolve(__dirname, "../dist")
       },
       module: {
@@ -43,6 +43,7 @@ module.exports = env => {
                 ? MiniCssExtractPlugin.loader
                 : "style-loader",
               "css-loader",
+              "postcss-loader",
               "sass-loader"
             ]
           }
@@ -64,7 +65,8 @@ module.exports = env => {
         // copy files to build folder
         // copy files from static to dist
         // run `npm run prebuild`
-        new CopyWebpackPlugin([{ from: "src/static" }])
+        new CopyWebpackPlugin([{ from: "src/static" }]),
+        new WebpackMd5Hash()
       ]
     }
   ]);
