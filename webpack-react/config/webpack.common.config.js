@@ -18,7 +18,7 @@ module.exports = env => {
       // full ES2015+ environment
       entry: ["@babel/polyfill", APP_DIR], // support async/await
       output: {
-        filename: "[name].[chunkhash].js", // chunkhash instead of hash
+        filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, "../dist")
       },
       module: {
