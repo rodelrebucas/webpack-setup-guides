@@ -38,6 +38,8 @@ A. Install Dependencies
 - "style-loader" - Adds CSS to the DOM by injecting a <style> tag
 - "sass-loader" - Loads a Sass/SCSS file and compiles it to CSS.
 - "html-webpack-plugin" - generate HTML, supports on demand .css and .js files automatically added to your HTML files on demand
+- "postcss-loader" - PostCSS is a tool for transforming styles with JS plugins. Used only auto prefixer
+- "webpack-md5-hash" - generate hash with only changed files.
 
 B. Installation
 
