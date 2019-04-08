@@ -52,6 +52,7 @@ class App extends React.Component {
     const { CaptainKirkBio } = this.state;
     return (
       <div className="app">
+        <div className="div box" />
         <img
           alt="header"
           src="/dist/images/header.jpg"
