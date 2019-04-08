@@ -18,9 +18,7 @@ module.exports = env => {
       entry: ["@babel/polyfill", APP_DIR], // support async/await
       output: {
         filename:
-          PLATFORM === "production"
-            ? "[name].[contenthash].js"
-            : "[name].[hash].js",
+          PLATFORM === "production" ? "[name].[contenthash].js" : "[name].js",
         path: path.resolve(__dirname, "../dist")
       },
       module: {
