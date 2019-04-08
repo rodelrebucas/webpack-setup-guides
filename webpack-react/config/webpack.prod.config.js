@@ -26,7 +26,9 @@ const prodConfiguration = env => {
         },
         // splits common code into chunks
         // and generates a vendor.js file
-        minimizer: [new UglifyJsPlugin()]
+        // deny access to source map or don't deploy source map
+        // to production
+        minimizer: [new UglifyJsPlugin({ sourceMap: true })]
       },
       plugins: [
         new MiniCssExtractPlugin({
