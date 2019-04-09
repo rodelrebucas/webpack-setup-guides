@@ -6,6 +6,7 @@
   transition: 1s;
 }
 
-/* testing autoprefixer will result to -webkit-min-device-pixel-ratio:2 */
+/* testing autoprefixer should result to -webkit-min-device-pixel-ratio:2 */
 @media (min-resolution: 2dppx) {
+  color: black;
 }
