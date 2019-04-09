@@ -10,7 +10,7 @@ var Visualizer = require("webpack-visualizer-plugin");
 var commonConfig = require("./webpack.common.config");
 
 // prod setup , optimizations
-const prodConfiguration = env => {
+const prodConfiguration = () => {
   return merge([
     {
       optimization: {
@@ -46,5 +46,5 @@ const prodConfiguration = env => {
 };
 
 module.exports = env => {
-  return merge(commonConfig(env), prodConfiguration(env));
+  return merge(commonConfig(env), prodConfiguration());
 };
