@@ -11,7 +11,7 @@ A. Install Dependencies
 
 - "@babel/core" - core compiler
 - "@babel/plugin-proposal-class-properties" - Coverts your class syntax into a function for browsers that don’t support class syntax
-- "@babel/plugin-proposal-export-namespace-from" - import \* as ns from '../path/to/module';
+- "@babel/plugin-proposal-export-namespace-from" - export \* as ns from '../path/to/module';
 - "@babel/plugin-proposal-throw-expressions" - new syntax for exceptions
 - "@babel/plugin-syntax-dynamic-import" - helps with code splitting when using babel
 - "@babel/polyfill" - full ES2015+ environment
